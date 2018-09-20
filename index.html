@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Trivia Game</title>
+</head>
+
+<body>
+  <div class="card text-white bg-dark text-center">
+    <div class="card-body">
+      <h1 class="card-title">JavaScript Trivia Game!</h1><br><br>
+      <p class="card-text">
+        <h5>You have 30 seconds to answer each JavaScript related question.<br> Press start/Reset to begin.</h5>
+      </p><br>
+      <a href="#" class="btn btn-outline-info btn-lg" role="button" id="start-reset">Start/Reset</a>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-9">
+        <div class="card-body">
+          <h5>Question<span id="questionNum"></span></h5>
+          <p class="card-text"></p>
+          <div class="row">
+            <div class="quesion" id="question">
+              <p>"WHat is Java Script? - placeholder</p>
+            </div><br><br>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="radio" name="select" aria-label="Radio button for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-A">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="radio" name="select" aria-label="Radio button for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-B">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="radio" name="select" aria-label="radio for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-C">
+            </div>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="radio" name="select" aria-label="Radio button for following text input">
+                </div>
+              </div>
+              <input type="text" class="form-control" aria-label="Text input with radio button " id="button-C">
+            </div><br>
+          </div>
+          <div class="card-footer">
+            <h5 class="text-center text-info" id = "answer-msg">Incorrect! The answer is:Placeholder</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card-body">
+          <h5 class="card-title">Game Results:</h5>
+          <strong>Correct: </strong> <span id="correct-count"></span><br />
+          <strong>Incorrect: </strong> <span id="incorrect-count"></span><br />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

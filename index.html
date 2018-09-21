@@ -14,11 +14,11 @@
 <body>
   <div class="card text-white bg-dark text-center">
     <div class="card-body">
-      <h1 class="card-title">JavaScript Trivia Game!</h1><br><br>
+      <h1 class="card-title">JavaScript Trivia Game!</h1><br>
       <p class="card-text">
         <h5>You have 30 seconds to answer each JavaScript related question.<br> Press start/Reset to begin.</h5>
       </p><br>
-      <a href="#" class="btn btn-outline-info btn-lg" role="button" id="start-reset">Start/Reset</a>
+      <a href="#" class="btn btn-outline-info btn-lg" role="button" id="startReset">Start/Reset</a>
     </div>
   </div>
 
@@ -35,53 +35,74 @@
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="radio" name="select" aria-label="Radio button for following text input">
+                  <input type="radio" class = "btnpick" name="select" value = "A" aria-label="Radio button for following text input">
                 </div>
               </div>
-              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-A">
-            </div>
+              <div class="Choice ml-1" type="text" class="form-control" aria-label="Text input with radio button" id="buttonA">
+              </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="radio" name="select" aria-label="Radio button for following text input">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="radio" class = "btnpick" name="select" value = "B" aria-label="Radio button for following text input">
+                  </div>
                 </div>
-              </div>
-              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-B">
-            </div>
+                <div class="Choice ml-1" type="text" class="form-control" aria-label="Text input with radio button" id="buttonB">
+                </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="radio" name="select" aria-label="radio for following text input">
-                </div>
-              </div>
-              <input type="text" class="form-control" aria-label="Text input with radio button" id="button-C">
-            </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <input type="radio" class = "btnpick" name="select" value = "C" aria-label="radio for following text input">
+                    </div>
+                  </div>
+                  <div class="Choice ml-1" type="text" class="form-control" aria-label="Text input with radio button"
+                    id="buttonC">
+                  </div>
 
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="radio" name="select" aria-label="Radio button for following text input">
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="radio" class = "btnpick" name="select" value = "D" aria-label="Radio button for following text input">
+                      </div>
+                    </div>
+                    <div class="Choice ml-1" type="text" class="form-control" aria-label="Text input with radio button"
+                      id="buttonD">
+                    </div><br>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <h5 class="text-center text-info" id="answer-msg">Incorrect! The answer is:Placeholder</h5>
                 </div>
               </div>
-              <input type="text" class="form-control" aria-label="Text input with radio button " id="button-C">
-            </div><br>
-          </div>
-          <div class="card-footer">
-            <h5 class="text-center text-info" id = "answer-msg">Incorrect! The answer is:Placeholder</h5>
+            </div>
           </div>
         </div>
       </div>
+
+
       <div class="col-3">
         <div class="card-body">
           <h5 class="card-title">Game Results:</h5>
           <strong>Correct: </strong> <span id="correct-count"></span><br />
-          <strong>Incorrect: </strong> <span id="incorrect-count"></span><br />
+          <strong>Incorrect: </strong> <span id="incorrect-count"></span><br /><b></b>
+          <div class="row">
+            <div class="timer mt-4">
+              <h4>TIME LEFT:</h4><br>
+            </div>
+          </div>
+          <div class="row text-info text-center mt- 3">
+            <h1 id="timeLeft"></h1>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+  </div>
+
+
 
 
 
@@ -91,7 +112,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
-  <script src="app.js"></script>
+  <!-- <script src="assets/javascript/question.js"></script> -->
+  <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

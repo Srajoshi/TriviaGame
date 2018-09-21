@@ -5,9 +5,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Noto Serif JP', 'Source Sans Pro';
 } 
+.card-footer{
 
+  width:90%;
+}
 
-
+.Choice{
+  border:1px solid grey;
+  width: 85%;
+  padding: 5px;
+ margin: 5px;
+}
 @media screen and (max-width: 768px) {
 
   

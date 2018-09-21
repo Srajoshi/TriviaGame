@@ -91,51 +91,50 @@ var questions = [{
   answer: "C"
 
 }];
-// var i =0
-function display(i) {
+var i = -1;
+function display() {
 
   questionHTML.textContent = questions[i].question;
   buttonAHTML.textContent = questions[i].choiceA;
   buttonBHTML.textContent = questions[i].choiceB;
   buttonCHTML.textContent = questions[i].choiceC;
   buttonDHTML.textContent = questions[i].choiceD;
-
   answerHTML.textContent = "";
 
 };
 
-// display();
+function endGame() {
+
+  correctHTML.textContent = correctCount;
+  incorrectHTML.textContent = incorrectCount;
+  answerHTML.textContent = "Game Over!"
+
+}
+
+function nextQuestion() {
+i++;
+console.log(i)
+setTimeout(display, 3000)
+checkAnswer();
+
+  // TODO: If the count is the same as the length of the image array, reset the count to 0.
+
+  if (i === questions.length){
+    endGame();
+    stop();
+    
+  }
 
 
-// for (i=0 ; i < questions.length; i++) {
-// display(i);
-// console.log(i);
-// $(".btnpick").on("click", function () {
+}
 
-//  choice = $(this).val();
-// console.log(choice);
-// if (choice === questions[i].answer){
-// console.log(true)
-// // stop timer
-// // start the 5 sec timer
-
-// answerHTML.textContent = "Correct!";
-// } else {
-//   console.log(false)
-//   answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
-// }
-
-
-// });
-
-//  };
-
-var number = 10;
 var intervalId;
+number = 30
 
+function beginQuiz(){
 
-//$("#stopReset").on("click", stop);
-// when gameFlag = true
+  intervalId = setInterval(nextQuestion, 3000)
+}
 
 
 function run() {
@@ -144,7 +143,7 @@ function run() {
   //gameFlag = true
 }
 
-//  The decrement function.
+// //  The decrement function.
 function decrement() {
 
   //  Decrease number by one.
@@ -160,8 +159,8 @@ function decrement() {
     stop();
 
     //  message time is up.
-    answerHTML.textContent = ("Time Up! The correct answer is: ");
-
+    answerHTML.textContent = ("Time Up!");
+    number = 0
   }
 }
 
@@ -171,7 +170,51 @@ function stop() {
   clearInterval(intervalId);
 }
 
-//  Execute the run function.
 
-$("#startReset").on("click", run);
-$(".btnpick").on("click", stop);
+// var i =0
+$("#startReset").on("click", beginQuiz)
+
+
+
+
+// // display(i);
+// // console.log(i);
+
+function checkAnswer() {
+$(".btnpick").on("click", function () {
+
+ choice = $(this).val();
+//  /stop timer
+// start the 10 sec timer
+ //stop();
+// number = 10
+// run(10)
+console.log(choice);
+if (choice === questions[i].answer){
+console.log(true)
+i++
+answerHTML.textContent = "Correct!";
+correctCount++
+} else {
+  console.log(false)
+  answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
+incorrectCount++;
+ }
+
+})
+};
+
+
+
+
+
+
+// //$("#stopReset").on("click", stop);
+// // when gameFlag = true
+
+
+
+// //  Execute the run function.
+
+// $("#startReset").on("click", run);
+// $(".btnpick").on("click", stop);

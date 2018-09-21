@@ -1,3 +1,23 @@
+// DOM elements
+var startButtonHTML = document.getElementById("startReset");
+var quwstionNumHTML = document.getElementById("questionNum");
+var questionHTML = document.getElementById("question");
+var correctHTML = document.getElementById("correctCount");
+var incorrectHTML = document.getElementById("incorrectCount");
+var answerHTML = document.getElementById("answerMsg");
+var buttonAHTML = document.getElementById("buttonA");
+var buttonBHTML = document.getElementById("buttonB");
+var buttonCHTML = document.getElementById("buttonC");
+var buttonDHTML = document.getElementById("buttonD");
+var timeLeftHTML = document.getElementById("timeLeft");
+
+var correct = 0;
+var incorrect = 0;
+var answerMsg = "";
+var question = "";
+var choice = "";
+var gameFlag = false;
+var intervalId;
 var questions = [{
 
   question: "Why do JavaScript and Java have similar name?",
@@ -70,80 +90,88 @@ var questions = [{
   choiceD: " if (conditional expression is true) then {execute this code}",
   answer: "C"
 
-}]
+}];
+// var i =0
+function display(i) {
 
-// var clockRunning = false;
+  questionHTML.textContent = questions[i].question;
+  buttonAHTML.textContent = questions[i].choiceA;
+  buttonBHTML.textContent = questions[i].choiceB;
+  buttonCHTML.textContent = questions[i].choiceC;
+  buttonDHTML.textContent = questions[i].choiceD;
 
-// // Our stopwatch object
-// var stopwatch = {
+  answerHTML.empty();
 
-//   time: 20,
+};
 
-//   reset: function() {
+// display();
+var i = 0;
 
-//     stopwatch.time = 0;
+$("#startReset").on("click", display(i));
+console.log(i);
+$(".btnpick").on("click", function () {
 
-//     // DONE: Change the "display" div to "00:00."
-//     $("#timeLeft").text("00:00");
+ choice = $(this).val();
+console.log(choice);
+if (choice === questions[i].answer){
+console.log(true)
+// stop timer
+// start the 5 sec timer
+i++
+answerHTML.textContent = "Correct!";
+} else {
+  console.log(false)
+  answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
+i++
+}
 
-//   },
-//   start: function() {
 
-//     // DONE: Use setInterval to start the count here and set the clock to running.
-//     if (!clockRunning) {
-//       intervalId = setInterval(stopwatch.count, 1000);
-//       clockRunning = true;
-//     }
-//   },
-//   stop: function() {
+});
 
-//     // DONE: Use clearInterval to stop the count here and set the clock to not be running.
-//     clearInterval(intervalId);
-//     clockRunning = false;
-//   },
-//   // recordLap: function() {
 
-//   //   // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-//   //   //       and save the result in a variable.
-//   //   var converted = stopwatch.timeConverter(stopwatch.time);
 
-//   //   // DONE: Add the current lap and time to the "laps" div.
-//   //   $("#laps").append("<p>Lap " + stopwatch.lap + " : " + converted + "</p>");
+// var number = 10;
+// var intervalId;
 
-//   //   // DONE: Increment lap by 1. Remember, we can't use "this" here.
-//   //   stopwatch.lap++;
-//   // },
-//   count: function() {
 
-//     // DONE: increment time by 1, remember we cant use "this" here.
-//     stopwatch.time--;
+// //$("#stopReset").on("click", stop);
+// // when gameFlag = true
 
-//     // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-//     //       and save the result in a variable.
-//     var converted = stopwatch.timeConverter(stopwatch.time);
-//     console.log(converted);
 
-// DONE: Use the variable we just created to show the converted time in the "display" div.
-// $("#timeLeft").text(converted);
-//   },
-//   timeConverter: function(t) {
+// function run() {
+//   clearInterval(intervalId);
+//   intervalId = setInterval(decrement, 1000);
+//   //gameFlag = true
+// }
 
-//     var minutes = Math.floor(t / 60);
-//     var seconds = t - (minutes * 60);
+// //  The decrement function.
+// function decrement() {
 
-//     if (seconds < 10) {
-//       seconds = "0" + seconds;
-//     }
+//   //  Decrease number by one.
+//   number--;
 
-//     if (minutes === 0) {
-//       minutes = "00";
-//     }
-//     else if (minutes < 10) {
-//       minutes = "0" + minutes;
-//     }
+//   //  Show the number 
+//   $("#timeLeft").text(number);
 
-//     return minutes + ":" + seconds;
+//   //  Once number hits zero...
+//   if (number === 0) {
+
+//     //run the stop function.
+//     stop();
+
+//     //  message time is up.
+//     answerHTML.textContent = ("Time Up! The correct answer is: ");
+
 //   }
-// };
-// $("#startReset").on("click", stopwatch.start);
-// gameFlag = true;
+// }
+
+// //  The stop function
+// function stop() {
+
+//   clearInterval(intervalId);
+// }
+
+// //  Execute the run function.
+
+// $("#startReset").on("click", run);
+// $(".btnpick").on("click", stop);

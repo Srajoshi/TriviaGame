@@ -14,7 +14,7 @@ var timeLeftHTML = document.getElementById("timeLeft");
 var correct = 0;
 var incorrect = 0;
 var answerMsg = "";
-var question = "";
+//var question = "";
 var choice = "";
 var gameFlag = false;
 var intervalId;
@@ -91,8 +91,9 @@ var questions = [{
   answer: "C"
 
 }];
-var i = -1;
-function display() {
+var i = 0;
+
+function display(i) {
 
   questionHTML.textContent = questions[i].question;
   buttonAHTML.textContent = questions[i].choiceA;
@@ -112,28 +113,46 @@ function endGame() {
 }
 
 function nextQuestion() {
-i++;
-console.log(i)
-setTimeout(display, 3000)
-checkAnswer();
 
-  // TODO: If the count is the same as the length of the image array, reset the count to 0.
 
+//checkAnswer();
+
+  // TODO: If the count is the same as the length of the image array, end game.
   if (i === questions.length){
     endGame();
     stop();
     
+    console.log("endgame: :" + i)
+    return false
   }
+  else {
+    i++;
+    if (i === questions.length){
+      endGame();
+      stop();
+      
+      console.log("endgame: :" + i)
+      return false
+    }
+  console.log("next question i: " + i)
+setTimeout(display(i), 1000)
 
 
+  }
 }
 
 var intervalId;
-number = 30
+//number = 30
 
 function beginQuiz(){
+  //show the first question
+  display(i);
+  console.log("first question i: " + i)
 
-  intervalId = setInterval(nextQuestion, 3000)
+  intervalId = setInterval(nextQuestion, 5000)
+  checkAnswer();
+  // console.log(intervalId)
+  // $("#timeLeft").text(number);
 }
 
 
@@ -160,7 +179,7 @@ function decrement() {
 
     //  message time is up.
     answerHTML.textContent = ("Time Up!");
-    number = 0
+    //number = 0
   }
 }
 
@@ -171,7 +190,6 @@ function stop() {
 }
 
 
-// var i =0
 $("#startReset").on("click", beginQuiz)
 
 
@@ -182,7 +200,9 @@ $("#startReset").on("click", beginQuiz)
 
 function checkAnswer() {
 $(".btnpick").on("click", function () {
-
+if (i > questions.length){
+  return false;
+}
  choice = $(this).val();
 //  /stop timer
 // start the 10 sec timer

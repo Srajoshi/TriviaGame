@@ -106,8 +106,8 @@ function display(i) {
 
 function endGame() {
 
-  correctHTML.textContent = correctCount;
-  incorrectHTML.textContent = incorrectCount;
+  correctHTML.textContent = correct;
+  incorrectHTML.textContent = incorrect;
   answerHTML.textContent = "Game Over!"
 
 }
@@ -115,27 +115,25 @@ function endGame() {
 function nextQuestion() {
 
 
-//checkAnswer();
-
-  // TODO: If the count is the same as the length of the image array, end game.
-  if (i === questions.length){
+  
+  // If the count is the same as the length of the image array, end game.
+  if (i === questions.length) {
     endGame();
     stop();
-    
+
     console.log("endgame: :" + i)
     return false
-  }
-  else {
+  } else {
     i++;
-    if (i === questions.length){
+    if (i === questions.length) {
       endGame();
       stop();
-      
+
       console.log("endgame: :" + i)
       return false
     }
-  console.log("next question i: " + i)
-setTimeout(display(i), 1000)
+    console.log("next question i: " + i)
+    setTimeout(display(i), 1000)
 
 
   }
@@ -144,7 +142,7 @@ setTimeout(display(i), 1000)
 var intervalId;
 //number = 30
 
-function beginQuiz(){
+function beginQuiz() {
   //show the first question
   display(i);
   console.log("first question i: " + i)
@@ -155,6 +153,7 @@ function beginQuiz(){
   // $("#timeLeft").text(number);
 }
 
+var number = 15;
 
 function run() {
   clearInterval(intervalId);
@@ -190,7 +189,7 @@ function stop() {
 }
 
 
-$("#startReset").on("click", beginQuiz)
+$("#startReset").on("click", beginQuiz);
 
 
 
@@ -199,30 +198,30 @@ $("#startReset").on("click", beginQuiz)
 // // console.log(i);
 
 function checkAnswer() {
-$(".btnpick").on("click", function () {
-if (i > questions.length){
-  return false;
-}
- choice = $(this).val();
-//  /stop timer
-// start the 10 sec timer
- //stop();
-// number = 10
-// run(10)
-console.log(choice);
-if (choice === questions[i].answer){
-console.log(true)
-i++
-answerHTML.textContent = "Correct!";
-correctCount++
-} else {
-  console.log(false)
-  answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
-incorrectCount++;
- }
+  $(".btnpick").on("click", function () {
+    
+    if (i > questions.length) {
+      return false;
+    } else {
+      choice = $(this).val();
+      console.log(choice);
+      if (choice === questions[i].answer) {
+        console.log(questions[i].answer)
+        console.log(true)
+        i++
+        answerHTML.textContent = "Correct!";
+        correct++
+      } else {
+        console.log(false)
+        answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
+        incorrect++;
+      }
+    }
 
-})
+
+  })
 };
+
 
 
 

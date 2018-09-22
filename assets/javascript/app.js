@@ -153,7 +153,7 @@ function beginQuiz() {
   // $("#timeLeft").text(number);
 }
 
-var number = 15;
+var number = 5;
 
 function run() {
   clearInterval(intervalId);
@@ -199,7 +199,7 @@ $("#startReset").on("click", beginQuiz);
 
 function checkAnswer() {
   $(".btnpick").on("click", function () {
-    
+    run();
     if (i > questions.length) {
       return false;
     } else {
@@ -211,10 +211,12 @@ function checkAnswer() {
         i++
         answerHTML.textContent = "Correct!";
         correct++
+        number = 5
       } else {
         console.log(false)
         answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
         incorrect++;
+        number = 5;
       }
     }
 

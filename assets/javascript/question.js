@@ -156,6 +156,7 @@ function display(i) {
 function pause() {
 
   if (i > questions.length) {
+    answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
        return false;
   } else {
       i++
@@ -191,6 +192,7 @@ function pause() {
   function gameStats() {
     correctHTML.textContent = correct;
     incorrectHTML.textContent = incorrect;
+    answerHTML.textContent = "Incorrect! the correct answer is: " + questions[i].answer + "."
   };
 
 
